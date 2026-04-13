@@ -315,20 +315,15 @@ elif st.session_state.view == "details":
         st.markdown("</div>", unsafe_allow_html=True)
 
     with right:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
         st.markdown(f"## {data.get('title','')}")
         release = data.get("release_date") or "-"
         genres = ", ".join([g["name"] for g in data.get("genres", [])]) or "-"
-        st.markdown(
-            f"<div class='small-muted'>Release: {release}</div>", unsafe_allow_html=True
-        )
-        st.markdown(
-            f"<div class='small-muted'>Genres: {genres}</div>", unsafe_allow_html=True
-        )
+
+        st.markdown(f"Release: {release}")
+        st.markdown(f"Genres: {genres}")
         st.markdown("---")
         st.markdown("### Overview")
         st.write(data.get("overview") or "No overview available.")
-        st.markdown("</div>", unsafe_allow_html=True)
 
     if data.get("backdrop_url"):
         st.markdown("#### Backdrop")
